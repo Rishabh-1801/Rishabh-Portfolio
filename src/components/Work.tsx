@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
@@ -6,41 +7,40 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-const projects = [
-  {
-    number: "01",
-    name: "OmnexaAI",
-    category: "Company Website",
-    description:
-      "A modern, fully responsive company website with Django backend, Bootstrap 5 frontend, and particles.js animations.",
-    tech: "Python · Django · Bootstrap 5 · JavaScript · HTML · CSS",
-    link: "https://omnexaai.com",
-    image: "/images/omnexaai.png",
-  },
-  {
-    number: "02",
-    name: "Personal Portfolio v1",
-    category: "Portfolio Website",
-    description:
-      "My first personal portfolio — responsive, clean, and professional with smooth scroll animations.",
-    tech: "HTML5 · CSS3 · Bootstrap 5 · JavaScript · AOS.js",
-    link: "#",
-    image: "/images/portfolio-3d.png",
-  },
-  {
-    number: "03",
-    name: "Sokhda Nagrik Mandal",
-    category: "Mobile Application",
-    description:
-      "A community-focused mobile application currently in development using Flutter, designed to connect and serve the members of Sokhda Nagrik Mandal.",
-    tech: "Flutter · Dart · Cross-platform Development",
-    link: "#",
-    image: "/images/placeholder.webp",
-  },
-];
+interface Project {
+  number: string;
+  name: string;
+  category: string;
+  description: string;
+  tech: string;
+  link: string;
+  image: string;
+}
+
+const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/work/`;
 
 const Work = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
   useGSAP(() => {
+    if (projects.length === 0) return;
+
     let translateX: number = 0;
 
     function setTranslateX() {
@@ -78,7 +78,7 @@ const Work = () => {
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();
     };
-  }, []);
+  }, { dependencies: [projects] });
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
