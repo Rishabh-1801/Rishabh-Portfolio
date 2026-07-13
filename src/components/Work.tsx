@@ -21,7 +21,6 @@ const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/work/`;
 
 const Work = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -31,8 +30,6 @@ const Work = () => {
         setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
-      } finally {
-        setLoading(false);
       }
     };
     fetchProjects();
