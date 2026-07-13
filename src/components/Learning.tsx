@@ -28,7 +28,7 @@ interface Category {
 }
 
 /* ── Helpers ── */
-const API_URL = "http://127.0.0.1:8000/api/learning/";
+const API_URL = "https://portfolio-backend-yq4h.onrender.com/api/learning/";
 
 const levelLabel: Record<string, string> = {
   beginner: "Beginner",
@@ -85,8 +85,7 @@ const Learning = () => {
           <div className="learning-state learning-error">
             <span>⚠️</span>
             <p>
-              Couldn't reach the backend. Make sure Django is running on{" "}
-              <code>localhost:8000</code>.
+              Couldn't reach the backend. Please try again later.
             </p>
           </div>
         )}
