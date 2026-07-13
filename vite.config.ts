@@ -7,9 +7,8 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
-  },
-  // Exclude Django venv from file watcher (prevents ENOSPC crash)
-  watch: {
-    ignored: ["**/portfolio_backend/venv/**", "**/portfolio_backend/db.sqlite3"],
+    watch: {
+      ignored: ["**/portfolio_backend/venv/**", "**/portfolio_backend/db.sqlite3"],
+    },
   },
 });
