@@ -1,0 +1,56 @@
+/* ── Particle canvas — covers entire viewport ── */
+.cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Small sharp dot ── */
+.cursor-main {
+  --size: 0px;
+  position: fixed;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background-color: #fff;
+  mix-blend-mode: difference;
+  transition: width 0.25s ease-out, height 0.25s ease-out,
+    top 0.25s ease-out, left 0.25s ease-out;
+  will-change: transform;
+}
+
+/* icons hover — pill shape */
+.cursor-main.cursor-icons {
+  --size: 50px;
+  background-color: #e6c3ff;
+  box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
+  border-radius: 50px;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  height: calc(var(--cursorH) - 20px);
+  transition: all 0.5s ease-out, height 0.5s ease-in-out, background-color 0.3s, box-shadow 0.3s;
+}
+
+/* disable (e.g. over links) — hide dot */
+.cursor-disable {
+  --size: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  .cursor-main {
+    --size: 12px;
+    /* small, sharp — was 50px */
+  }
+
+  .cursor-disable {
+    --size: 0px;
+  }
+}

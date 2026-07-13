@@ -1,0 +1,6 @@
+.vercel
+node_modules
+dist
+.env
+portfolio_backend/venv*
+portfolio_backend/__pycache__
