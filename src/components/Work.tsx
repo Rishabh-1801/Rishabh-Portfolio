@@ -17,7 +17,7 @@ interface Project {
   image: string;
 }
 
-const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/work/`;
+const API_URL = "https://portfolio-backend-yq4h.onrender.com/api/work/";
 
 const Work = () => {
   const [projects, setProjects] = useState<Project[]>([]);
