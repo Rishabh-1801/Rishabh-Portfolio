@@ -168,6 +168,12 @@
   width: 1px;
 }
 
+.learning-skills-col,
+.learning-posts-col {
+  min-width: 0;
+  word-wrap: break-word;
+}
+
 /* ── Column titles ── */
 .learning-col-title {
   font-size: 12px;
