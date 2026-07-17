@@ -10,10 +10,11 @@
   margin: auto;
 }
 .about-me {
-  padding: 50px 0px;
+  padding: 50px 20px;
   padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
 }
 .about-me h3 {
   font-size: 25px;
