@@ -366,6 +366,12 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .learning-container {
+    max-width: var(--cWidth);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .learning-container {
     padding: 0 20px;
