@@ -264,6 +264,10 @@
   .work-flex .work-box:nth-child(even) {
     flex-direction: column;
   }
+  .work-flex::before,
+  .work-flex::after {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .work-container {
