@@ -20,7 +20,7 @@ class LearningPostSerializer(serializers.ModelSerializer):
 class LearningCategorySerializer(serializers.ModelSerializer):
     skills = LearningSkillSerializer(many=True, read_only=True)
     posts = LearningPostSerializer(many=True, read_only=True,
-                                   source='posts_published')
+                                   source='posts')
 
     class Meta:
         model = LearningCategory
