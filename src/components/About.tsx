@@ -13,11 +13,6 @@ const About = () => {
           Gandhinagar, Gujarat, and always open to new projects and
           collaborations.
         </p>
-        <div className="about-highlights">
-          <span className="about-badge">Full Stack Developer</span>
-          <span className="about-badge">Python &amp; Django</span>
-          <span className="about-badge">Gandhinagar, Gujarat</span>
-        </div>
       </div>
     </div>
   );
