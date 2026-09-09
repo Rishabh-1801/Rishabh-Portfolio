@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: portfolio-backend
+    runtime: python
+    rootDir: portfolio_backend
+    buildCommand: "bash build.sh"
+    startCommand: "bash start_render.sh"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
